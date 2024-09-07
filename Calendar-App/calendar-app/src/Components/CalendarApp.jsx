@@ -2,7 +2,7 @@ const CalendarApp = () => {
   return (
     <div className="calendar-app">
       <div className="calendar">
-        <h1 className="heading"> Calendar </h1>
+        <h1 className="heading"> CALENDAR </h1>
         <div className="navigate-date">
             <h2 className="month">Sep,</h2>
             <h2 className="year">2024</h2>
@@ -28,7 +28,7 @@ const CalendarApp = () => {
             <span>5</span>
             <span>6</span>
             <span>7</span>
-            <span>8</span>
+            <span >8</span>
             <span>9</span>
             <span>10</span>
             <span>11</span>
@@ -37,7 +37,7 @@ const CalendarApp = () => {
             <span>14</span>
             <span>15</span>
             <span>16</span>
-            <span>17</span>
+            <span className="current-day">17</span>
             <span>18</span>
             <span>19</span>
             <span>20</span>
