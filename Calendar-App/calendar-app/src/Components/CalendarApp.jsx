@@ -24,7 +24,7 @@ const CalendarApp = () => {
   const [selectedDate, setSelectedDate] = useState(currentDate);
   const [showEventPopup, setShowEventPopUp] = useState(false);
   const [events, setEvents] = useState([]);
-  const [eventTime, setEventTime] = useState({ hours: "00", minutes: "00" });
+  const [eventTime, setEventTime] = useState({ hours: '', minutes: '' });
   const [eventText, setEventText] = useState("");
   const [editingEvent, setEditingEvent] = useState(null);
 
@@ -54,7 +54,7 @@ const CalendarApp = () => {
     if (clickedDate >= today || isSameDay(clickedDate, today)) {
       setSelectedDate(clickedDate);
       setShowEventPopUp(true);
-      setEventTime({ hours: "00", minutes: "00" });
+      setEventTime({ hours: '', minutes: '' });
       setEventText("");
       setEditingEvent(null);
     }
@@ -72,9 +72,9 @@ const CalendarApp = () => {
     const newEvent = {
       id: editingEvent ? editingEvent.id : Date.now(),
       date: selectedDate,
-      time: `${eventTime.hours.padStart(2, "0")} : ${eventTime.minutes.padStart(
+      time: `${eventTime.hours.padStart(2, '')} : ${eventTime.minutes.padStart(
         2,
-        "0"
+        ''
       )}`,
       text: eventText,
     };
@@ -91,7 +91,7 @@ const CalendarApp = () => {
     updatedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     setEvents(updatedEvents);
-    setEventTime({ hours: "00", minutes: "00" });
+    setEventTime({ hours: '', minutes: '' });
     setEventText("");
     showEventPopup(false);
     setEditingEvent(null);
@@ -118,7 +118,7 @@ const CalendarApp = () => {
 
     setEventTime((prevTime) => ({
       ...prevTime,
-      [name]: value.padStart(2, "0"),
+      [name]: value.padStart(2, ''),
     }));
   };
 
@@ -128,7 +128,7 @@ const CalendarApp = () => {
         <h1 className="heading"> CALENDAR </h1>
         <div className="navigate-date">
           <h2 className="month">{monthsOfYear[currentMonth]},</h2>
-          <h2 className="year">[currentYear]</h2>
+          <h2 className="year">{currentYear}</h2>
           <div className="buttons">
             <i className="bx bx-chevron-left" onClick={prevMonth}></i>
             <i className="bx bx-chevron-right" onClick={nextMonth}></i>
